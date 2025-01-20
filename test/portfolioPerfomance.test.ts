@@ -1,5 +1,5 @@
 import request, { Response } from "supertest";
-import  app  from "../src/app";  // Import the app
+import  app  from "../src/app";
 import { calculatePortfolioPerformance } from "../src/portfolio/portfolioperformance"; // Import the function to mock
 
 // Mock the calculatePortfolioPerformance function

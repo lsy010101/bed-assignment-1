@@ -34,8 +34,31 @@ app.get("/api/v1/health", (req, res) => {
     });
 });
 
-app.get('/portfolio-performance', (req, res) => {
+/**
+ * @openapi
+ * /api/v1/health:
+ *  get:
+ *   summary: server health check
+ *   tags: [api/v1/health]
+ *   responses:
+ *    200:
+ *     description: checks server health
+ */
+
+app.get('/portfolioperformance', (req, res) => {
     const portfolioPerformance = calculatePortfolioPerformance();
-    res.status(200).json(portfolioPerformance); // Send the performance data as JSON
+    res.status(200).json(portfolioPerformance);
   });
+
+/**
+ * @openapi
+ * /portfolioperformance:
+ *  get:
+ *   summary: Retrieve performance summary
+ *   tags: [Portfolioperformance]
+ *   responses:
+ *    200:
+ *     description: Assess portfolio performance summary according to gain/loss percentage
+ */
+
 export default app;
