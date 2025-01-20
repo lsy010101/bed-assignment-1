@@ -1,5 +1,6 @@
 import express, { Express } from "express";
 import setupSwagger from "../config/swagger";
+import { calculatePortfolioPerformance } from "./portfolio/portfolioperformance";
 
 const app: Express = express();
 
@@ -33,4 +34,8 @@ app.get("/api/v1/health", (req, res) => {
     });
 });
 
+app.get('/portfolio-performance', (req, res) => {
+    const portfolioPerformance = calculatePortfolioPerformance();
+    res.status(200).json(portfolioPerformance); // Send the performance data as JSON
+  });
 export default app;
